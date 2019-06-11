@@ -19,16 +19,11 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(Integer id, String firstName, String lastName, String email, LocalDate birthday) {
-        this.id = id;
+    public Customer(String firstName, String lastName, String email, LocalDate birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.birthday = birthday;
-    }
-
-    public Customer(String firstName, String lastName, String email, LocalDate birthday) {
-        this(null, firstName, lastName, email, birthday);
     }
 
     public Integer getId() {
