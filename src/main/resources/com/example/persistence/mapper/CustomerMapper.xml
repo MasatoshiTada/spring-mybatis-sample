@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace = Mapperインタフェースの完全修飾名-->
+<mapper namespace="com.example.persistence.mapper.CustomerMapper">
+
+    <!-- id = メソッド名、resultType = 戻り値の型（完全修飾名 or エイリアス） -->
+    <select id="findAll" resultType="Customer">
+        SELECT
+            id,
+            first_name,
+            last_name,
+            email,
+            birthday
+        FROM
+            customer
+        ORDER BY
+            id
+    </select>
+
+    <!-- id = メソッド名、resultType = 戻り値の型（完全修飾名 or エイリアス） -->
+    <select id="findById" resultType="Customer">
+        SELECT
+            id,
+            first_name,
+            last_name,
+            email,
+            birthday
+        FROM
+            customer
+        WHERE
+            id = #{id}
+    </select>
+
+    <!-- id = メソッド名、parameterType = 引数の型（完全修飾名 or エイリアス） -->
+    <insert id="insert" parameterType="Customer"
+            useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO customer(first_name, last_name, email, birthday)
+        VALUES(#{firstName}, #{lastName}, #{email}, #{birthday})
+    </insert>
+
+</mapper>
